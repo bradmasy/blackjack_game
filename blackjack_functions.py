@@ -92,6 +92,7 @@ def card_values():
 
 def ace_value(ace):
     #TODO: decision of ace value based on total value of hand
+    # test branch
     if ace + second_card_value > BLACK_JACK:
         ace = 1
     else:
