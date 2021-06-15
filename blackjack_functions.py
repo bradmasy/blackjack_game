@@ -18,7 +18,7 @@ BLACK_JACK = 21
 def validate_bank_roll(bank_roll):
     """ Function uses regular expressions to validate bank roll.
     """
-    expression = re.search(r"^[^0][0-9]*\.[0-9][0-9]", bank_roll)
+    expression = re.search(r"^[^0][0-9]*\.?[0-9]?[0-9]?", bank_roll)
     if expression:
         validation = True
     else:
@@ -90,10 +90,9 @@ def card_values():
         associated_card_values.append(card_and_value)
     return associated_card_values
 
-def ace_value(ace):
+def ace_value(players_hand_value):
     #TODO: decision of ace value based on total value of hand
-    # test branch
-    if ace + second_card_value > BLACK_JACK:
+    if players_hand_value >= BLACK_JACK - 1:
         ace = 1
     else:
         ace = 11
@@ -107,13 +106,12 @@ def display_hand(hand):
     print(card_one_value)
     for card_and_value in card_value:
         if card_one_value in card_and_value[1]:
-
             values.append(card_and_value[0])
         elif card_two_value in card_and_value[1]:
             values.append(card_and_value[0])
     print(values)
-    #players_hand_value = sum(values)
-    #print(players_hand_value)
+    players_hand_value = sum(values)
+    print(players_hand_value)
     print(f"your cards are {hand[0]} and {hand[1]}")
 
 

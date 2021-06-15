@@ -17,7 +17,5 @@ def main():
     player_one.hand(player_hand)
     print(player_one._hand)
 
-
-
 if __name__ == "__main__":
     main()
